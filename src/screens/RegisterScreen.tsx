@@ -10,10 +10,10 @@ from "../types/navigation";
 type Props =
   NativeStackScreenProps<
     RootStackParamList,
-    "Login"
+    "Register"
   >;
 
-export default function LoginScreen({
+export default function RegisterScreen({
   navigation,
 }: Props) {
   return (
@@ -24,19 +24,12 @@ export default function LoginScreen({
         alignItems: "center",
       }}
     >
-      <Text>Login Screen</Text>
+      <Text>Register Screen</Text>
 
       <Button
-        title="Entrar"
+        title="Voltar"
         onPress={() =>
-          navigation.navigate("Home")
-        }
-      />
-
-      <Button
-        title="Cadastrar"
-        onPress={() =>
-          navigation.navigate("Register")
+          navigation.goBack()
         }
       />
     </View>
