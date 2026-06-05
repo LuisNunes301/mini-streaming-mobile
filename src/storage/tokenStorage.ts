@@ -1,15 +1,15 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const TOKEN_KEY = "jwt_token";
+const TOKEN_KEY = "token";
 
-export const saveToken = async (token: string) => {
+export async function saveToken(token: string) {
   await AsyncStorage.setItem(TOKEN_KEY, token);
-};
+}
 
-export const getToken = async () => {
+export async function getToken() {
   return AsyncStorage.getItem(TOKEN_KEY);
-};
+}
 
-export const removeToken = async () => {
-  return AsyncStorage.removeItem(TOKEN_KEY);
-};
+export async function removeToken() {
+  await AsyncStorage.removeItem(TOKEN_KEY);
+}

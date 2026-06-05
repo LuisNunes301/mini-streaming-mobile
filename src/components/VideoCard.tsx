@@ -1,31 +1,58 @@
-import { View, Text } from "react-native";
-import { Video } from "../types/Video";
+import {
+  View,
+  Text,
+  Pressable,
+} from "react-native";
 
+import { Video }
+from "../types/Video";
+
+import { formatDuration, VideoStatus } from "../utils/videos.utils";
 interface Props {
   video: Video;
+  onPress: () => void;
+  
 }
 
 export default function VideoCard({
   video,
+  onPress,
 }: Props) {
+
+  const status = video.status as VideoStatus;
+
+  const statusColor = status === "READY" ? "green" : status === "PROCESSING" ? "yellow" : "red";
+
   return (
-    <View
-      style={{
-        padding: 16,
-        marginBottom: 12,
-        borderWidth: 1,
-        borderRadius: 8,
-      }}
-    >
-      <Text>{video.title}</Text>
+    <Pressable onPress={onPress}>
+      
+      <View
+        style={{
+          padding: 20,
+          marginBottom: 16,
+          borderWidth: 1,
+          borderRadius: 16,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: "bold",
+          }}
+        >
+          {video.title}
+        </Text>
 
-      <Text>
-        Status: {video.status}
-      </Text>
-
-      <Text>
-        Duração: {Math.floor(video.duration)}s
-      </Text>
-    </View>
+        <Text>
+          Status: <Text style={{ color: statusColor }}>{status}</Text>
+        </Text>
+        <Text>
+          Resolução: {video.width}x{video.height}
+        </Text>
+        <Text>
+          Duração: {formatDuration(video.duration)}
+        </Text>
+      </View>
+    </Pressable>
   );
 }

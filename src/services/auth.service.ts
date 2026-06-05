@@ -1,13 +1,14 @@
 import { api } from "./api";
+
 import {
   AuthRequest,
   AuthResponse,
-  RegisterRequest
+  RegisterRequest,
 } from "../types/Auth";
 
-export const login = async (
+export async function login(
   data: AuthRequest
-): Promise<AuthResponse> => {
+): Promise<AuthResponse> {
 
   const response =
     await api.post<AuthResponse>(
@@ -16,11 +17,11 @@ export const login = async (
     );
 
   return response.data;
-};
+}
 
-export const register = async (
+export async function register(
   data: RegisterRequest
-) => {
+) {
 
   const response =
     await api.post(
@@ -29,12 +30,14 @@ export const register = async (
     );
 
   return response.data;
-};
+}
 
-export const me = async () => {
+export async function me() {
 
   const response =
-    await api.get("/auth/me");
+    await api.get(
+      "/auth/me"
+    );
 
   return response.data;
-};
+}

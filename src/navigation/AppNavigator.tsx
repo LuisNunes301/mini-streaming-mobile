@@ -9,6 +9,8 @@ import HomeScreen from "../screens/HomeScreen";
 
 import { RootStackParamList } from "../types/navigation";
 import RegisterScreen from "../screens/RegisterScreen";
+import VideoDetailsScreen from "../screens/VideoDetailsScreen";
+import VideoPlayerScreen from "../screens/VideoPLayerScreen";
 
 const Stack =
   createNativeStackNavigator<RootStackParamList>();
@@ -32,6 +34,14 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+        />
+        <Stack.Screen
+          name="VideoDetails"
+          component={VideoDetailsScreen}
+        />
+        <Stack.Screen
+          name="VideoPlayer"
+          component={VideoPlayerScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
