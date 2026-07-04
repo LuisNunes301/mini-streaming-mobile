@@ -35,6 +35,7 @@ export default function VideoDetailsScreen({
         {
           videoUrl: playback.videoUrl,
           startAt: playback.startAt,
+          videoId: video.id
         }
       );
 
@@ -45,40 +46,24 @@ export default function VideoDetailsScreen({
     }
   }
   return (
+  <View style={{ flex: 1, padding: 20, backgroundColor: "#121212" }}>
+    <Text style={{ fontSize: 24, fontWeight: "bold", color: "#FFF", marginBottom: 10 }}>
+      {video.title}
+    </Text>
 
-    <View
-      style={{
-        flex: 1,
-        padding: 20,
-      }}
-    >
-      <Text
-        style={{
-          fontSize: 24,
-          fontWeight: "bold",
-        }}
-      >
-        {video.title}
-      </Text>
+    <Text style={{ color: "#AAA", marginBottom: 5 }}>
+      Categoria: {video.category}
+    </Text>
 
-      <Text>
-        Status: {video.status}
-      </Text>
+    <Text style={{ color: "#AAA", marginBottom: 20 }}>
+      Duração original: {video.duration.toFixed(2)}s
+    </Text>
 
-      <Text>
-        Duração: {video.duration}
-      </Text>
-
-      <Text>
-        Resolução:
-        {" "}
-        {video.width}x{video.height}
-      </Text>
-
-      <Button
-        title="Assistir"
-        onPress={handleWatch}
-      />
-    </View>
-  );
+    <Button
+      title="Assistir"
+      color="#E50914"
+      onPress={handleWatch}
+    />
+  </View>
+);
 }

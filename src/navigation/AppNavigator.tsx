@@ -15,6 +15,7 @@ import VideoPlayerScreen from "../screens/VideoPLayerScreen";
 const Stack =
   createNativeStackNavigator<RootStackParamList>();
 
+
 export default function AppNavigator() {
   return (
     <NavigationContainer>

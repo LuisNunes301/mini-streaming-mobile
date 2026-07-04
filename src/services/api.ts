@@ -1,9 +1,10 @@
 import axios from "axios";
 import { getToken } from "../storage/tokenStorage";
 
+const BASE_URL = process.env.EXPO_PUBLIC_API_URL;
+
 export const api = axios.create({
-  baseURL: process.env.EXPO_PUBLIC_API_URL,
-  
+  baseURL: BASE_URL,
 });
 
 api.interceptors.request.use(
